@@ -13,9 +13,9 @@ class App extends Component {
     this.state = { 
       searchResults: [ 
         {
-          name: 'hit me baby',
-          artist: 'britney spears',
-          album: 'hit me'
+          name: 'colorful nickels',
+          artist: 'black moth super rainbow',
+          album: 'autumn kaliede'
         }, {
           name: 'Eventually',
           artist: 'Tame Impala',
@@ -24,6 +24,22 @@ class App extends Component {
           name: 'Keep on Lying',
           artist: 'Tame Impala',
           album: 'Lonerism'
+        }
+      ],
+      playlistName: 'Trees',
+      playlistTracks: [
+        {
+          name: 'Sun Lips',
+          artist: 'Black Moth Super Rainbow',
+          album: 'Dandelion Gum'
+        }, {
+          name: 'Like a Sundae',
+          artist: 'Black Moth Super Rainbow',
+          album: 'Cobra Juicy'
+        }, {
+          name: 'I dreamt i saw you in a dream',
+          artist: 'Sunbean Soundmachine',
+          album: 'wanderer'
         }
       ]
     };
@@ -40,7 +56,7 @@ class App extends Component {
             {/* <!-- Add a SearchBar component --> */}
             <div className="App-playlist">
               <SearchResults searchResults={this.state.searchResults} />
-              {/* <!-- Add a Playlist component --> */}
+              <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
             </div>
           </div>
 
