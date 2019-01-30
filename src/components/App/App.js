@@ -45,6 +45,21 @@ class App extends Component {
     };
   }
 
+  // Use the track's id property to check if the current song is in 
+  // the playlistTracks state.
+// If the id is new, add the song to the end of the playlist.
+	// Set the new state of the playlist
+  addTrack(track) {
+
+    if (this.state.playlistTracks.filter(playlistTrack => 
+      track.id !== playlistTrack.id)) {
+        let tracks = this.state.playlistTracks;
+        tracks.push(track);
+        this.setState({playlistTracks: tracks});
+    }
+    
+  }
+
 
 
   render() {
