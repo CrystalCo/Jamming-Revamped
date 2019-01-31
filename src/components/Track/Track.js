@@ -17,6 +17,7 @@ export default class Track extends Component {
         this.props.onRemove(this.props.track);
     }
 
+    // Where is isRemoval prop?
     renderAction() {
         return this.props.isRemoval ? <a onClick={this.removeTrack} >-</a> : <a onClick={this.addTrack} className="Track-action" >+</a>;
     }
@@ -35,9 +36,4 @@ export default class Track extends Component {
     }
 }
 
-/*
-# <!-- + or - will go here -->
-Create a method called renderAction that 
-displays a - anchor tag if the isRemoval property is true, 
-and a + anchor tag if the isRemoval property is false. 
-*/
+
