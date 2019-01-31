@@ -43,8 +43,41 @@ const Spotify = {
                 });
                 */
         }
-
     },
+
+    search(term) {
+        if (!term) {
+            return [];
+        }
+
+        // let accessToken = this.getAccessToken();
+        accessToken = Spotify.getAccessToken();
+        const query = `https://api.spotify.com/v1/search?q=${term}&type=track`;
+        let myHeaders = new Headers();
+        myHeaders.append('Authorization', `Bearer ${accessToken}`);
+        console.log(myHeaders);
+    
+        return fetch(query, {
+            method: 'GET',
+            headers: myHeaders
+        }).then(response => response.json()
+        ).then(jsonResponse => {
+            if (!jsonResponse) {
+                return [];
+            }
+            console.log(jsonResponse);
+            let spotifyTracks = jsonResponse.tracks.items.map(track => {
+                return {
+                    id: track.id,
+                    name: track.name,
+                    artist: track.artists[0].name,
+                    album: track.album.name,
+                    uri: track.uri
+                }
+            });
+            return spotifyTracks;
+        });
+    }
 
 }
 
