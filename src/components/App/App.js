@@ -47,6 +47,7 @@ class App extends Component {
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
+    this.savePlaylist = this.savePlaylist.bind(this);
   }
 
   // Adds track if track id is not already in playlist
@@ -69,6 +70,20 @@ class App extends Component {
     this.setState({ playlistName: name });
   }
 
+  savePlaylist() {
+    // Generates an array of uri values from the playlistTraks property
+    // Later will save the array and playlistName in another method
+    // Spotify URI example: spotify:track:7rr22pfqBscxGgaZsCLYZr 
+    const trackURIs = this.state.playlistTracks.map(track => track.uri);
+    
+    /**
+     * Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
+     *    this.setState({playListName: 'New Playlist', playListTracks: []});
+     * });
+     */
+
+  }
+
 
   render() {
     return (
@@ -81,12 +96,13 @@ class App extends Component {
               <SearchResults 
                 searchResults={this.state.searchResults} 
                 onAdd={this.addTrack} />
-                
+
               <Playlist 
                 playlistName={this.state.playlistName} 
                 playlistTracks={this.state.playlistTracks} 
                 onRemove={this.removeTrack} 
-                onNameChange={this.updatePlaylistName} />
+                onNameChange={this.updatePlaylistName} 
+                onSave={this.savePlaylist} />
             </div>
           </div>
 
