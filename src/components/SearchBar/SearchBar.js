@@ -38,3 +38,24 @@ export default class SearchBar extends Component {
     }
 
 }
+
+/**
+ * 
+ * search(term) {
+    this.props.onSearch(term);
+  }
+
+  handleTermChange(e) {
+    this.search(e.target.value);
+  }
+
+  handleKeyPress(e) {
+    let key = e.key;
+    let term = e.target.value;
+    if (key === 'enter' || key === 'Enter' || key === 'return') {
+      return this.search(term);
+    }
+  }
+ */
+
+ 
