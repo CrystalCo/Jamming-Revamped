@@ -45,6 +45,7 @@ class App extends Component {
     };
 
     this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
   }
 
   // Adds track if track id is not already in playlist
@@ -57,6 +58,12 @@ class App extends Component {
     }    
   }
 
+  removeTrack(track) {
+    let tracks = this.state.playlistTracks;
+    const removeTrack = tracks.filter(playlistTrack => track.id !== playlistTrack.id);
+    this.setState({ playlistTracks: removeTrack });
+  }
+
 
   render() {
     return (
@@ -66,8 +73,13 @@ class App extends Component {
           <div className="App">
             {/* <!-- Add a SearchBar component --> */}
             <div className="App-playlist">
-              <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
-              <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
+              <SearchResults 
+                searchResults={this.state.searchResults} 
+                onAdd={this.addTrack} />
+              <Playlist 
+                playlistName={this.state.playlistName} 
+                playlistTracks={this.state.playlistTracks} 
+                onRemove={this.removeTrack} />
             </div>
           </div>
 

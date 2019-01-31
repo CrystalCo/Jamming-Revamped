@@ -13,7 +13,8 @@ export default class TrackList extends Component {
                             <Track 
                             track={ track }
                             key={ track.id } 
-                            onAdd={ this.props.onAdd } />
+                            onAdd={ this.props.onAdd } 
+                            onRemove={ this.props.onRemove } />
                         );
                     })
                 }
