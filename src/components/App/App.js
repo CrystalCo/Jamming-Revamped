@@ -48,6 +48,7 @@ class App extends Component {
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
+    this.search = this.search.bind(this);
   }
 
   // Adds track if track id is not already in playlist
@@ -81,7 +82,10 @@ class App extends Component {
      *    this.setState({playListName: 'New Playlist', playListTracks: []});
      * });
      */
+  }
 
+  search(searchTerm) {
+    console.log(searchTerm);
   }
 
 
@@ -91,7 +95,8 @@ class App extends Component {
         
           <h1>Ja<span className="highlight">mm</span>ing<span className="highlight">-</span>Re<span className="highlight">vam</span>ped</h1>
           <div className="App">
-            {/* <!-- Add a SearchBar component --> */}
+            <SearchBar onSearch={this.search} />
+
             <div className="App-playlist">
               <SearchResults 
                 searchResults={this.state.searchResults} 
@@ -103,6 +108,7 @@ class App extends Component {
                 onRemove={this.removeTrack} 
                 onNameChange={this.updatePlaylistName} 
                 onSave={this.savePlaylist} />
+
             </div>
           </div>
 
