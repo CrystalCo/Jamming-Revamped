@@ -1,8 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  
+
+## Dependencies
+Requires node, npm, & react. 
+In terminal, install create-react-app in your home directory.
+`````shell
+npm install -g create-react-app
+`````
+
+Clone the repository into your project folder, then install node modules and dependencies:
+`````shell
+npm install
+`````
 
 ## Available Scripts
 
-In the project directory, you can run:
+Now you can run:
 
 ### `npm start`
 
